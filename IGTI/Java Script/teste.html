@@ -1,0 +1,41 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <input type="number" id="valor" placeholder="Valor">
+        <input type="number" id="prazo" placeholder="Prazo">
+        <input type="number" id="juros" placeholder="Juros">
+        <input type="button" value="Calcular" onclick="calcular();">
+        <script>
+            function calcular(){
+                var valor = document.getElementById("valor").valueAsNumber
+                var prazo = document.getElementById("prazo").valueAsNumber * 12
+                var juros = Math.pow(1 + document.getElementById("juros").valueAsNumber, 1 / 12) - 1
+                var amortizacao = valor / prazo
+                var saldoDevedor = valor
+                var juros2 = saldoDevedor * juros
+                var total = amortizacao + juros2
+                var soma = 0
+
+                console.log("Valor: " + valor + " Prazo: " + prazo + " Juros: " + juros + " Amortizacao: " + amortizacao)
+                console.log("Prestacao 1: " + amortizacao + " " + juros2 + " " + total)
+                /*
+                for(var i = 1; i <= 5; i++){
+                    saldoDevedor = saldoDevedor - (i - 1) * amortizacao
+                    
+                    console.log("Prestacao " + i + ": " + amortizacao + " " + juros2 + " " + total)
+                }
+                */
+                for(var i = 1; i <= prazo; i++){
+                    saldoDevedor = valor - (i - 1) * amortizacao
+                    juros2 = saldoDevedor * juros
+                    total = amortizacao + juros2
+                    soma += juros2
+                    console.log("Prestacao " + i + ": " + amortizacao + " " + juros2 + " " + total)
+                }
+                console.log("Juros Acumulados: " + soma)
+            }
+        </script>
+    </body>
+</html>
