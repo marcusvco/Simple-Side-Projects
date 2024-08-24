@@ -1,0 +1,5 @@
+Tokyo;35.6897
+Delhi;28.6100
+Rio de Janeiro;32.1334
+Rio de Janeiro;25.3452
+Delhi;23.6100
